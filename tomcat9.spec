@@ -108,6 +108,9 @@ exit 0
 %doc %{homedir}/NOTICE
 %doc %{homedir}/RELEASE-NOTES
 %doc %{homedir}/RUNNING.txt
+%doc %{homedir}/BUILDING.txt
+%doc %{homedir}/CONTRIBUTING.md
+%doc %{homedir}/README.md
 
 %changelog
 * Mon Oct 15 2018 - grainger@gmail.com - 9.0.12-1
