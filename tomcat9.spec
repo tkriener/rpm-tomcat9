@@ -2,7 +2,7 @@
 
 Name:             tomcat9
 Version:          9.0.14
-Release:          1.el7.harbottle
+Release:          2.el7.harbottle
 Summary:          Apache Servlet/JSP Engine, RI for Servlet 3.1/JSP 2.3 API
 License:          ASL 2.0
 URL:              http://tomcat.apache.org/
@@ -113,6 +113,9 @@ exit 0
 %doc %{homedir}/README.md
 
 %changelog
+* Fri Feb 01 2019 - harbottle@room3d3.com - 9.0.14-2
+  - Fix systemd service
+
 * Fri Dec 21 2018 - harbottle@room3d3.com - 9.0.14-1
   - Bump version
 * Mon Oct 15 2018 - grainger@gmail.com - 9.0.12-1
