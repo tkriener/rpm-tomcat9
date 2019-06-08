@@ -2,8 +2,9 @@
 
 Name:             tomcat9
 Version:          9.0.21
-Release:          1.el7.harbottle
+Release:          2.el7.harbottle
 Summary:          Apache Servlet/JSP Engine, RI for Servlet 3.1/JSP 2.3 API
+Group:            System Environment/Daemons
 License:          ASL 2.0
 URL:              http://tomcat.apache.org/
 Source0:          http://www-us.apache.org/dist/tomcat/tomcat-9/v%{version}/bin/apache-tomcat-%{version}.tar.gz
@@ -28,11 +29,34 @@ Tomcat is developed in an open and participatory environment and
 released under the Apache Software License version 2.0. Tomcat is intended
 to be a collaboration of the best-of-breed developers from around the world.
 
+%package admin-webapps
+Group: Applications/System
+Summary: The host-manager and manager web applications for Apache Tomcat 9
+Requires: %{name} = %{version}-%{release}
+
+%description admin-webapps
+The host-manager and manager web applications for Apache Tomcat 9.
+
+%package docs-webapp
+Group: Applications/Text
+Summary: The docs web application for Apache Tomcat 9
+Requires: %{name} = %{version}-%{release}
+
+%description docs-webapp
+The docs web application for Apache Tomcat 9.
+
+%package webapps
+Group:    Applications/Internet
+Summary:  The ROOT and examples web applications for Apache Tomcat 9
+Requires: %{name} = %{version}-%{release}
+
+%description webapps
+The ROOT and examples web applications for Apache Tomcat 8.
+
 %prep
 %setup -qn apache-tomcat-%{version}
 
 %install
-rm -rf webapps/*
 rm -f bin/*.bat
 sed -i -e '/^2localhost/d' -e '/\[\/localhost\]/d' \
     -e '/^3manager/d' -e '/\[\/manager\]/d' \
@@ -50,7 +74,6 @@ install -d -m 755 $RPM_BUILD_ROOT%{_var}/cache/%{name}
 install -d -m 755 $RPM_BUILD_ROOT%{_var}/lib
 install -d -m 755 $RPM_BUILD_ROOT%{_var}/lib/%{name}
 install -d -m 755 $RPM_BUILD_ROOT%{_libexecdir}
-
 
 mv bin $RPM_BUILD_ROOT%{_libexecdir}/%{name}
 mv conf $RPM_BUILD_ROOT%{_sysconfdir}/%{name}
@@ -94,7 +117,7 @@ exit 0
 %attr(-,root,tomcat9) %{homedir}/lib
 %attr(-,tomcat9,tomcat9) %{_var}/log/%{name}
 %attr(-,tomcat9,tomcat9) %{_var}/cache/%{name}/temp
-%attr(-,tomcat9,tomcat9) %{_var}/lib/%{name}/webapps
+%attr(-,tomcat9,tomcat9) %dir %{_var}/lib/%{name}/webapps
 %attr(-,tomcat9,tomcat9) %{_var}/cache/%{name}/work
 %{_unitdir}/%{name}.service
 %{_sysconfdir}/logrotate.d/%{name}
@@ -112,7 +135,26 @@ exit 0
 %doc %{homedir}/CONTRIBUTING.md
 %doc %{homedir}/README.md
 
+%files admin-webapps
+%defattr(0664,root,tomcat9,0755)
+%{_var}/lib/%{name}/webapps/host-manager
+%{_var}/lib/%{name}/webapps/manager
+%config(noreplace) %{_var}/lib/%{name}/webapps/host-manager/WEB-INF/web.xml
+%config(noreplace) %{_var}/lib/%{name}/webapps/manager/WEB-INF/web.xml
+
+%files docs-webapp
+%defattr(-,root,root,-)
+%{_var}/lib/%{name}/webapps/docs
+
+%files webapps
+%defattr(0644,tomcat9,tomcat9,0755)
+%{_var}/lib/%{name}/webapps/ROOT
+%{_var}/lib/%{name}/webapps/examples
+
 %changelog
+* Sat Jun 08 2019 - harbottle@room3d3.com - 9.0.21-2
+  - Add webapps packages
+
 * Fri Jun 07 2019 - harbottle@room3d3.com - 9.0.21-1
   - Bump version
 
