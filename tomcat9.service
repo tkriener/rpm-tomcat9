@@ -1,0 +1,18 @@
+[Unit]
+Description=Apache Tomcat Web Application Container
+After=syslog.target network.target
+
+[Service]
+EnvironmentFile=/etc/tomcat9/tomcat9.conf
+
+ExecStart=/usr/libexec/tomcat9/catalina.sh run
+ExecStop=/usr/libexec/tomcat9/catalina.sh stop
+SuccessExitStatus=143
+
+User=tomcat9
+Group=tomcat9
+
+SyslogIdentifier=tomcat9
+
+[Install]
+WantedBy=multi-user.target
