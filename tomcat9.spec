@@ -2,10 +2,10 @@
 
 Name:             tomcat9
 Version:          9.0.30
-Release:          1%{?dist}.harbottle
+Release:          2%{?dist}.harbottle
 Summary:          Apache Servlet/JSP Engine, RI for Servlet 3.1/JSP 2.3 API
-Group:            System Environment/Daemons
-License:          ASL 2.0
+Group:            Applications/System
+License:          Apache-2.0
 URL:              http://tomcat.apache.org/
 Source0:          http://www-us.apache.org/dist/tomcat/tomcat-9/v%{version}/bin/apache-tomcat-%{version}.tar.gz
 Source1:          tomcat9.conf
@@ -152,6 +152,10 @@ exit 0
 %{_var}/lib/%{name}/webapps/examples
 
 %changelog
+* Thu Dec 19 2019 - harbottle@room3d3.com - 9.0.30-2
+  - Build for el8
+  - Tidy spec file
+
 * Thu Dec 19 2019 - harbottle@room3d3.com - 9.0.30-1
   - Bump version
 
