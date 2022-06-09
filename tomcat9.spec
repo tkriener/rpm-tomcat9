@@ -1,7 +1,7 @@
 %global homedir /usr/share/%{name}
 
 Name:             tomcat9
-Version:          9.0.63
+Version:          9.0.64
 Release:          1%{?dist}.harbottle
 Summary:          Apache Servlet/JSP Engine, RI for Servlet 3.1/JSP 2.3 API
 Group:            Applications/System
@@ -152,6 +152,9 @@ exit 0
 %{_var}/lib/%{name}/webapps/examples
 
 %changelog
+* Thu Jun 09 2022 - harbottle@room3d3.com - 9.0.64-1
+  - Bump version
+
 * Mon May 16 2022 - harbottle@room3d3.com - 9.0.63-1
   - Bump version
 
