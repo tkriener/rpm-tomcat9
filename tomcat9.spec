@@ -1,8 +1,9 @@
 %global homedir /usr/share/%{name}
 
 Name:             tomcat9
-Version:          9.0.64
+Version:          9.0.68
 Release:          1.el7.harbottle
+BuildArch:        x86_64
 Summary:          Apache Servlet/JSP Engine, RI for Servlet 3.1/JSP 2.3 API
 Group:            Applications/System
 License:          Apache-2.0
