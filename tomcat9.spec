@@ -2,7 +2,7 @@
 
 Name:             tomcat9
 Version:          9.0.64
-Release:          1%{?dist}.harbottle
+Release:          1.el7.harbottle
 Summary:          Apache Servlet/JSP Engine, RI for Servlet 3.1/JSP 2.3 API
 Group:            Applications/System
 License:          Apache-2.0
