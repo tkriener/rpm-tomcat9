@@ -1,7 +1,7 @@
 %global homedir /usr/share/%{name}
 
 Name:             tomcat9
-Version:          9.0.70
+Version:          9.0.74
 Release:          1.el7.harbottle
 BuildArch:        x86_64
 Summary:          Apache Servlet/JSP Engine, RI for Servlet 3.1/JSP 2.3 API
@@ -153,6 +153,9 @@ exit 0
 %{_var}/lib/%{name}/webapps/examples
 
 %changelog
+* Tue Apr 25 2023 - thomas.kriener@possehl-secure.de - 9.0.74-1
+  - Bump version
+
 * Thu Jan 09 2023 - thomas.kriener@twinsec.de - 9.0.70-1
   - Bump version
 
