@@ -16,7 +16,7 @@ fi
 
 if [ ! -f /root/rpmbuild/SOURCES/apache-tomcat-$VERSION.tar.gz ];
 then
-  curl -o  /root/rpmbuild/SOURCES/apache-tomcat-$VERSION.tar.gz http://archive.apache.org/dist/tomcat/tomcat-9/v$VERSION/bin/apache-tomcat-$VERSION.tar.gz
+  curl -o  /root/rpmbuild/SOURCES/apache-tomcat-$VERSION.tar.gz https://archive.apache.org/dist/tomcat/tomcat-9/v$VERSION/bin/apache-tomcat-$VERSION.tar.gz
 fi
 
 cp "/vagrant/tomcat9."{service,logrotate,conf} "/root/rpmbuild/SOURCES/"
