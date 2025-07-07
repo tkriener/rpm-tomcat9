@@ -1,7 +1,7 @@
 %global homedir /usr/share/%{name}
 
 Name:             tomcat9
-Version:          9.0.102
+Version:          9.0.107
 Release:          1.el7.harbottle
 BuildArch:        x86_64
 Summary:          Apache Servlet/JSP Engine, RI for Servlet 3.1/JSP 2.3 API
@@ -153,6 +153,12 @@ exit 0
 %{_var}/lib/%{name}/webapps/examples
 
 %changelog
+* Wed Jul 07 2025 - thomas.kriener@possehl-secure.de - 9.0.107-1
+  - Bump version
+
+* Fri May 30 2025 - thomas.kriener@possehl-secure.de - 9.0.105-1
+  - Bump version
+
 * Tue Mar 19 2025 - thomas.kriener@possehl-secure.de - 9.0.102-1
   - Bump version
 
